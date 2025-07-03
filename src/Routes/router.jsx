@@ -4,6 +4,8 @@ import ErrorPage from "../Pages/ErrorPage";
 import Home from "../Pages/Home"
 import Dashboard from "../Pages/Dashboard"
 import Campaigns from "../Pages/Campaigns"
+import HowToHelp from "../Pages/HowToHelp";
+import CampaignDetails from "../Pages/CampaignDetails";
 
 
 
@@ -26,8 +28,12 @@ const router = createBrowserRouter([
                 element: <Campaigns></Campaigns>,
             },
             {
+                path:"/campaigns/:id",
+                element: <CampaignDetails></CampaignDetails>,
+            },
+            {
                 path: "/how-to-help",
-                element: <Campaigns></Campaigns>,
+                element: <HowToHelp></HowToHelp>,
             },
         ],
     },

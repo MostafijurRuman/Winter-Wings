@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "title": "Warmth for Dhaka Slums",
+        "image": "https://i.ibb.co/gZ3kyXt7/winter-poor.jpg",
+        "description": "Help us distribute winter jackets and blankets to families living in Dhaka's urban slums. Your donation will keep children and elders warm this winter.",
+        "status": "Active",
+        "contactInfo": "contact@winterwings.org, +8801712345678",
+        "division": "Dhaka"
+    },
+    {
+        "id": 2,
+        "title": "Sylhet Hill Tracts Blanket Drive",
+        "image": "https://i.ibb.co/gZ3kyXt7/winter-poor.jpg",
+        "description": "Support our volunteers as they deliver warm clothes to remote villages in the Sylhet hill tracts. Every contribution helps a family survive the cold.",
+        "status": "Active",
+        "contactInfo": "sylhet@winterwings.org, +8801812345678",
+        "division": "Sylhet"
+    },
+    {
+        "id": 3,
+        "title": "Rajshahi Rural Outreach",
+        "image": "https://i.ibb.co/gZ3kyXt7/winter-poor.jpg",
+        "description": "Join our campaign to provide sweaters and shawls to the rural poor in Rajshahi. Your generosity can make a real difference this winter.",
+        "status": "Active",
+        "contactInfo": "rajshahi@winterwings.org, +8801912345678",
+        "division": "Rajshahi"
+    },
+    {
+        "id": 4,
+        "title": "Chattogram Coastal Aid",
+        "image": "https://i.ibb.co/gZ3kyXt7/winter-poor.jpg",
+        "description": "Donate warm clothing for coastal communities in Chattogram facing harsh winter winds. Help us reach the most vulnerable.",
+        "status": "Active",
+        "contactInfo": "chattogram@winterwings.org, +8801612345678",
+        "division": "Chattogram"
+    },
+    {
+        "id": 5,
+        "title": "Khulna Blanket Distribution",
+        "image": "https://i.ibb.co/gZ3kyXt7/winter-poor.jpg",
+        "description": "We are collecting blankets and warm clothes for low-income families in Khulna. Your support will help them stay warm and healthy.",
+        "status": "Active",
+        "contactInfo": "khulna@winterwings.org, +8801512345678",
+        "division": "Khulna"
+    },
+    {
+        "id": 6,
+        "title": "Barisal Winter Relief",
+        "image": "https://i.ibb.co/gZ3kyXt7/winter-poor.jpg",
+        "description": "Help us deliver winter essentials to the elderly and children in Barisal. Every donation counts in saving lives during the cold season.",
+        "status": "Active",
+        "contactInfo": "barisal@winterwings.org, +8801412345678",
+        "division": "Barisal"
+    },
+    {
+        "id": 7,
+        "title": "Mymensingh Community Warmth",
+        "image": "https://i.ibb.co/gZ3kyXt7/winter-poor.jpg",
+        "description": "Support our efforts to provide winter clothing to underprivileged communities in Mymensingh. Together, we can make a difference.",
+        "status": "Active",
+        "contactInfo": "mymensingh@winterwings.org, +8801312345678",
+        "division": "Mymensingh"
+    },
+    {
+        "id": 8,
+        "title": "Rangpur Blanket for All",
+        "image": "https://i.ibb.co/gZ3kyXt7/winter-poor.jpg",
+        "description": "Join our Rangpur campaign to distribute blankets and warm clothes to those in need. Your kindness brings hope and warmth.",
+        "status": "Active",
+        "contactInfo": "rangpur@winterwings.org, +8801212345678",
+        "division": "Rangpur"
+    }
+]
