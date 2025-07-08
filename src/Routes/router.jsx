@@ -6,6 +6,8 @@ import Dashboard from "../Pages/Dashboard"
 import Campaigns from "../Pages/Campaigns"
 import HowToHelp from "../Pages/HowToHelp";
 import CampaignDetails from "../Pages/CampaignDetails";
+import Login from "../Pages/Login";
+import Register from "../Pages/Register";
 
 
 
@@ -34,6 +36,14 @@ const router = createBrowserRouter([
             {
                 path: "/how-to-help",
                 element: <HowToHelp></HowToHelp>,
+            },
+            {
+                path: "/login",
+                element: <Login></Login>,
+            },
+            {
+                path: "/register",
+                element: <Register></Register>,
             },
         ],
     },

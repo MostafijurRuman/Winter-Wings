@@ -28,7 +28,7 @@ export default function Home() {
                 className="rounded-b-3xl shadow-2xl relative"
             >
                 <SwiperSlide>
-                    <div className="h-[420px] bg-[url('https://cdn.pixabay.com/photo/2023/12/06/08/53/winter-8433257_1280.jpg')] bg-cover bg-center flex flex-col items-center justify-center relative">
+                    <div className="h-[420px] bg-[url('https://121clicks.com/wp-content/uploads/2021/01/winter_life_in_villages_of_bangladesh_01.jpg')] bg-cover bg-center flex flex-col items-center justify-center relative">
                         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/20 rounded-b-3xl"></div>
                         <div className="relative z-10 text-center px-6">
                             <h1 className="text-4xl md:text-5xl font-playfair text-white font-bold drop-shadow-lg mb-4">
@@ -45,7 +45,7 @@ export default function Home() {
                 </SwiperSlide>
 
                 <SwiperSlide>
-                    <div className="h-[420px] bg-[url('https://cdn.pixabay.com/photo/2019/12/01/20/07/truck-4666300_1280.jpg')] bg-cover bg-center flex flex-col items-center justify-center relative">
+                    <div className="h-[420px] bg-[url('https://121clicks.com/wp-content/uploads/2021/01/winter_life_in_villages_of_bangladesh_17.jpg')] bg-cover bg-center flex flex-col items-center justify-center relative">
                         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/20 rounded-b-3xl"></div>
                         <div className="relative z-10 text-center px-6">
                             <h1 className="text-4xl md:text-5xl font-playfair text-white font-bold drop-shadow-lg mb-4">
