@@ -1,5 +1,5 @@
 import React, {useContext, useState } from "react";
-import {  NavLink, useNavigate } from "react-router-dom";
+import {  NavLink, useLocation, useNavigate } from "react-router-dom";
 import { MdEmail, MdLock } from "react-icons/md";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { AuthContext } from "../Provider/AuthProvider";
@@ -9,7 +9,8 @@ export default function Login() {
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState(""); // Add error state
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
+    const location =useLocation();
     const { loginWithEmailPassword,handelLoginWithGoogle } = useContext(AuthContext);
 
     const handleLogin = async (e) => {
@@ -17,7 +18,7 @@ export default function Login() {
         setError(""); // Clear previous error
         try {
             await loginWithEmailPassword(email, password);
-            // navigate("/"); // Uncomment if you want to redirect on success
+            navigate(location?.state ? location.state : "/" );
         } catch (err) {
             // Remove "Firebase:" prefix from error message if present
             const cleanedMessage = err.message?.replace(/^Firebase:\s*/, "") || "Login failed. Please try again.";
@@ -27,6 +28,7 @@ export default function Login() {
 
     const handleGoogleLogin = () => {
         handelLoginWithGoogle();
+         navigate(location?.state ? location.state : "/" );
     };
 
     return (

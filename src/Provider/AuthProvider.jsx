@@ -23,27 +23,36 @@ const AuthProvider = ({ children }) => {
   // Register new user with email and password
   const registerWithEmailPassword = (email, password) => {
     setLoading(true);
-    return createUserWithEmailAndPassword(auth, email, password);
+    return createUserWithEmailAndPassword(auth, email, password)
+      .finally(() => setLoading(false));
   };
 
   // Login user with email and password
   const loginWithEmailPassword = (email, password) => {
     setLoading(true);
-    return signInWithEmailAndPassword(auth, email, password);
+    return signInWithEmailAndPassword(auth, email, password)
+      .finally(() => setLoading(false));
   };
 
   // Update user profile name and photo
   const updateUserProfile = (updatedData) => {
-    return updateProfile(auth.currentUser, updatedData);
+    setLoading(true);
+    return updateProfile(auth.currentUser, updatedData)
+      .finally(() => setLoading(false));
   };
 
   // Login with Google
   const handelLoginWithGoogle = () => {
-    setLoading(true)
-    return signInWithPopup(auth, provider);
+    setLoading(true);
+    return signInWithPopup(auth, provider)
+      .finally(() => setLoading(false));
   };
 
-  const logout = () => signOut(auth);
+  const logout = () => {
+    setLoading(true);
+    return signOut(auth)
+      .finally(() => setLoading(false));
+  };
 
   const authInfo = {
     user,
@@ -63,8 +72,6 @@ const AuthProvider = ({ children }) => {
     });
     return () => unsubscribe();
   }, []);
-
-  console.log(user);
 
   // Show loading spinner while loading
   if (loading) {

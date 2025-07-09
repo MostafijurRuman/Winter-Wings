@@ -8,6 +8,7 @@ import HowToHelp from "../Pages/HowToHelp";
 import CampaignDetails from "../Pages/CampaignDetails";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import PrivateRoutes from "./PrivateRoutes";
 
 
 
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/dashboard",
-                element: <Dashboard></Dashboard>,
+                element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
             },
             {
                 path: "/campaigns",
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
             },
             {
                 path:"/campaigns/:id",
-                element: <CampaignDetails></CampaignDetails>,
+                element: <PrivateRoutes><CampaignDetails></CampaignDetails></PrivateRoutes>,
             },
             {
                 path: "/how-to-help",

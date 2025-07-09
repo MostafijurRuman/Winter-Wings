@@ -1,7 +1,7 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaUser, FaEnvelope, FaImage, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../Provider/AuthProvider";
 
@@ -45,19 +45,28 @@ export default function Register() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        registerWithEmailPassword(email,password)
-        .then((result)=>{
-            const user = result.user;
-            setUser(user);
-                updateUserProfile({displayName:name, photoURL:photo})
-                .then(()=>{
-                    navigate("/")
-                })
-                .catch(err => console.log(err))
-        })
-        .catch((err)=>{
-            console.log(err)
-        })
+        if (!validatePassword(password)) {
+            toast.error(passwordError || "Invalid password.");
+            return;
+        }
+        registerWithEmailPassword(email, password)
+            .then((result) => {
+                const user = result.user;
+                setUser(user);
+                updateUserProfile({ displayName: name, photoURL: photo })
+                    .then(() => {
+                        toast.success("Registration successful!");
+                        navigate("/");
+                    })
+                    .catch(err => {
+                        toast.error(err.message || "Profile update failed.");
+                        console.log(err);
+                    });
+            })
+            .catch((err) => {
+                toast.error(err.message || "Registration failed.");
+                console.log(err);
+            });
     };
 
     return (

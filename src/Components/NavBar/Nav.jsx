@@ -12,7 +12,7 @@ const navLinks = [
 ];
 
 const Nav = () => {
-    const {user,logout} =useContext(AuthContext);
+    const {user,logout,loading} =useContext(AuthContext);
     
     const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -73,11 +73,12 @@ const Nav = () => {
 
                 {/* User Profile / Login */}
                 <div className="flex items-center gap-3">
-                    {user ? (
+                    {!loading && user ? (
                         <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full border-2 border-[var(--color-primary)]">
                                     <img src={user.photoURL} alt="profile" />
+                                    {console.log(user.photoURL)}
                                 </div>
                             </label>
                             <ul
