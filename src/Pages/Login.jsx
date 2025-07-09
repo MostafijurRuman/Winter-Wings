@@ -101,7 +101,14 @@ export default function Login() {
                             />
                             Remember me
                         </label>
-                        <a href="#" className="hover:underline">
+                        <a
+                            href="#"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                navigate("/forgot-password", { state: { email } }); // Pass email to ForgotPassword
+                            }}
+                            className="hover:underline"
+                        >
                             Forgot password?
                         </a>
                     </div>

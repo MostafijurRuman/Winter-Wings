@@ -9,6 +9,8 @@ import CampaignDetails from "../Pages/CampaignDetails";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import PrivateRoutes from "./PrivateRoutes";
+import UpdateProfile from "../Pages/UpdateProfile";
+import ForgotPassword from "../Pages/ForgotPassword";
 
 
 
@@ -43,8 +45,16 @@ const router = createBrowserRouter([
                 element: <Login></Login>,
             },
             {
+                path: "/forgot-password",
+                element: <ForgotPassword></ForgotPassword>,
+            },
+            {
                 path: "/register",
                 element: <Register></Register>,
+            },
+            {
+                path: "/update-profile",
+                element: <UpdateProfile></UpdateProfile>,
             },
         ],
     },

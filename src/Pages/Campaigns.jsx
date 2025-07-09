@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 export default function Campaigns() {
     const [campaigns, setCampaigns] = useState([]);
-
+    const { setLoading } = useContext(AuthContext);
     // Fetch data from donation.json
     useEffect(() => {
+        setLoading(true);
         fetch("/donation.json")
             .then((response) => response.json())
             .then((data) => setCampaigns(data))
-            .catch((error) => console.error("Error fetching campaigns:", error));
+            .catch((error) => console.error("Error fetching campaigns:", error))
+            .finally(() => setLoading(false));
     }, []);
 
     return (

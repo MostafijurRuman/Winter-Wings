@@ -1,59 +1,54 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
-const stats = [
-    { title: "Users", value: "1,200", desc: "↗︎ 100 (8%)", icon: "👤" },
-    { title: "Sales", value: "$34,000", desc: "↗︎ $2,000 (6%)", icon: "💰" },
-    { title: "Orders", value: "320", desc: "↘︎ 20 (5%)", icon: "📦" },
-    { title: "Feedback", value: "98%", desc: "↗︎ 2% (1%)", icon: "⭐" },
-];
+const Dashboard = () => {
+    const { user } = useContext(AuthContext); // Get user info from AuthContext
+    const navigate = useNavigate();
 
-export default function Dashboard() {
+    // Redirect to update profile route
+    const handleUpdateProfile = () => {
+        navigate("/update-profile");
+    };
+
     return (
-        <div className="min-h-screen bg-base-200 p-8">
-            <div className="mb-8">
-                <h1 className="text-4xl font-bold text-primary">Dashboard</h1>
-                <p className="text-base-content mt-2">Welcome back! Here’s what’s happening today.</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                {stats.map((stat) => (
-                    <div key={stat.title} className="stat bg-base-100 shadow-xl rounded-xl p-6 flex flex-col items-center">
-                        <div className="text-4xl mb-2">{stat.icon}</div>
-                        <div className="stat-title">{stat.title}</div>
-                        <div className="stat-value text-primary">{stat.value}</div>
-                        <div className="stat-desc">{stat.desc}</div>
+        <div className="font-worksans bg-[var(--color-surface)] text-[var(--color-text)] py-12 px-4">
+            <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
+                {/* Welcome Title */}
+                <h1 className="text-3xl font-playfair text-[var(--color-primary)] mb-6">
+                    Welcome, {user?.displayName || "User"}!
+                </h1>
+
+                {/* Profile Information */}
+                <div className="flex flex-col items-center md:flex-row md:items-start gap-6">
+                    {/* Profile Image */}
+                    <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-[var(--color-primary)]">
+                        <img
+                            src={user?.photoURL || "https://via.placeholder.com/150"}
+                            alt="Profile"
+                            className="w-full h-full object-cover"
+                        />
                     </div>
-                ))}
-            </div>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <div className="col-span-2 bg-base-100 shadow-xl rounded-xl p-6">
-                    <h2 className="text-xl font-semibold mb-4">Recent Activity</h2>
-                    <ul className="timeline timeline-vertical">
-                        <li>
-                            <div className="timeline-start">09:00</div>
-                            <div className="timeline-middle bg-primary"></div>
-                            <div className="timeline-end timeline-box">User John signed up</div>
-                        </li>
-                        <li>
-                            <div className="timeline-start">10:30</div>
-                            <div className="timeline-middle bg-secondary"></div>
-                            <div className="timeline-end timeline-box">Order #1234 placed</div>
-                        </li>
-                        <li>
-                            <div className="timeline-start">12:00</div>
-                            <div className="timeline-middle bg-accent"></div>
-                            <div className="timeline-end timeline-box">Feedback received</div>
-                        </li>
-                    </ul>
-                </div>
-                <div className="bg-base-100 shadow-xl rounded-xl p-6">
-                    <h2 className="text-xl font-semibold mb-4">Quick Actions</h2>
+
+                    {/* Profile Details */}
                     <div className="flex flex-col gap-4">
-                        <button className="btn btn-primary">Add User</button>
-                        <button className="btn btn-secondary">Create Order</button>
-                        <button className="btn btn-accent">View Reports</button>
+                        <p className="text-lg">
+                            <span className="font-semibold">Name:</span> {user?.displayName || "N/A"}
+                        </p>
+                        <p className="text-lg">
+                            <span className="font-semibold">Email:</span> {user?.email || "N/A"}
+                        </p>
+                        <button
+                            onClick={handleUpdateProfile}
+                            className="btn btn-primary bg-[var(--color-primary)] text-white px-6 py-2 rounded-lg hover:bg-blue-700"
+                        >
+                            Update Profile
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     );
-}
+};
+
+export default Dashboard;
