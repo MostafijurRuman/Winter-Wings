@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaUser, FaEnvelope, FaImage, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../Provider/AuthProvider";
 
 export default function Register() {
     const [showPassword, setShowPassword] = useState(false);
@@ -14,6 +15,7 @@ export default function Register() {
     });
     const [passwordError, setPasswordError] = useState("");
     const navigate = useNavigate();
+    const{registerWithEmailPassword,updateUserProfile,setUser}=useContext(AuthContext)
 
     const { name, email, photo, password } = form;
 
@@ -41,19 +43,21 @@ export default function Register() {
         return true;
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        if (!validatePassword(password)) {
-            toast.error("Please fix the password errors before registering.");
-            return;
-        }
-        try {
-            // Simulate registration logic (replace with real API call)
-            // If registration is successful:
-            navigate("/");
-        } catch (err) {
-            toast.error("Registration failed. Please try again.");
-        }
+        registerWithEmailPassword(email,password)
+        .then((result)=>{
+            const user = result.user;
+            setUser(user);
+                updateUserProfile({displayName:name, photoURL:photo})
+                .then(()=>{
+                    navigate("/")
+                })
+                .catch(err => console.log(err))
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
     };
 
     return (

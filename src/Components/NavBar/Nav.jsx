@@ -1,14 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
-
-// Example user object for demonstration
-const user = {
-    isLoggedIn: false,
-    photoURL: "https://randomuser.me/api/portraits/men/32.jpg",
-    name: "John Doe",
-};
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const navLinks = [
     { name: "Home", to: "/" },
@@ -18,6 +12,8 @@ const navLinks = [
 ];
 
 const Nav = () => {
+    const {user,logout} =useContext(AuthContext);
+    
     const [mobileOpen, setMobileOpen] = useState(false);
 
     const activeLink =
@@ -77,7 +73,7 @@ const Nav = () => {
 
                 {/* User Profile / Login */}
                 <div className="flex items-center gap-3">
-                    {user.isLoggedIn ? (
+                    {user ? (
                         <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full border-2 border-[var(--color-primary)]">
@@ -95,7 +91,7 @@ const Nav = () => {
                                     <Link to="/dashboard">Dashboard</Link>
                                 </li>
                                 <li>
-                                    <button className="text-[var(--color-error)]">Logout</button>
+                                    <button onClick={()=>{logout()}} className="text-[var(--color-error)]">Logout</button>
                                 </li>
                             </ul>
                         </div>
